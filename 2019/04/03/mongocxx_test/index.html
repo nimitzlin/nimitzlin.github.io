@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="一个最简单版本的mongocxx driver测试安装
+安装新版cmake3.1以上 
+123wget https://cmake.org/files/v3.10/cmake-3.10.1-Linux-x86_64.tar.gztar fxz cmake-3.10.1-Linux-x86_64.ta">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Hexo">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="一个最简单版本的mongocxx driver测试安装
+安装新版cmake3.1以上 
+123wget https://cmake.org/files/v3.10/cmake-3.10.1-Linux-x86_64.tar.gztar fxz cmake-3.10.1-Linux-x86_64.ta">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Hexo">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="website">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Untitled</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-04-03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="一个最简单版本的mongocxx-driver测试"><a href="#一个最简单版本的mongocxx-driver测试" class="headerlink" title="一个最简单版本的mongocxx driver测试"></a>一个最简单版本的mongocxx driver测试</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>安装新版cmake3.1以上 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://cmake.org/files/v3.10/cmake-3.10.1-Linux-x86_64.tar.gz</span><br><span class="line">tar fxz cmake-3.10.1-Linux-x86_64.tar.gz</span><br><span class="line">ln -sf /home/xxxxx/cmake-3.10.1-Linux-x86_64/bin/cmake /usr/bin/cmake</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装libbson</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/mongodb/libbson/releases/download/1.9.0/libbson-1.9.0.tar.gz</span><br><span class="line">tar -xzf libbson-1.9.0.tar.gz</span><br><span class="line">cd libbson-1.9.0/</span><br><span class="line">./configure --enable-static</span><br><span class="line">make -j8</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mongo c driver</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/mongodb/mongo-c-driver/releases/download/1.9.0/mongo-c-driver-1.9.0.tar.gz</span><br><span class="line">tar xzf mongo-c-driver-1.9.0.tar.gz</span><br><span class="line">cd mongo-c-driver-1.9.0</span><br><span class="line">./configure --enable-static --disable-automatic-init-and-cleanup</span><br><span class="line">make -j8</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mongo cxx driver 3.1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/mongodb/mongo-cxx-driver/archive/r3.1.3.tar.gz -O</span><br><span class="line">mongo-cxx-driver-r3.1.3.tar.gz</span><br><span class="line">tar fxz mongo-cxx-driver-r3.1.3.tar.gz</span><br><span class="line">cd mongo-cxx-driver-r3.1.3/build</span><br><span class="line">cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DLIBBSON_DIR=/usr/local -DLIBMONGOC_DIR=/usr/local ..</span><br><span class="line">sudo make -j8</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="最简单版本的main"><a href="#最简单版本的main" class="headerlink" title="最简单版本的main"></a>最简单版本的main</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mongocxx/client.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;mongocxx/instance.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bsoncxx/builder/stream/document.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bsoncxx/json.hpp&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;mongocxx::client&gt; MongoConnPtr;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[] )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mongocxx::instance instance&#123;&#125;;</span><br><span class="line">    mongocxx::<span class="function">uri <span class="title">uri</span><span class="params">(<span class="string">"mongodb://username:pass@127.0.0.1:30000/?authSource=db_name&amp;authMechanism=SCRAM-SHA-1"</span>)</span></span>;</span><br><span class="line">    <span class="comment">//mongocxx::client client(uri);</span></span><br><span class="line">    <span class="function">MongoConnPtr <span class="title">pConn</span><span class="params">( <span class="keyword">new</span> mongocxx::client(uri) )</span></span>;</span><br><span class="line">	<span class="keyword">auto</span> db = (*pConn)[<span class="string">"tw2_commondb"</span>];</span><br><span class="line">	<span class="keyword">auto</span> collection  = db[<span class="string">"test"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> cursor = collection.find(&#123;&#125;);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> doc : cursor)</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; bsoncxx::to_json(doc) &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"end"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="这个简单的测试程序是为了调试某个crash引起的"><a href="#这个简单的测试程序是为了调试某个crash引起的" class="headerlink" title="这个简单的测试程序是为了调试某个crash引起的"></a>这个简单的测试程序是为了调试某个crash引起的</h2><ul>
+<li><p>看起来很诡异，一开始以为是mongo连接不上，用户名密码authMechanism不对之类的引起的，但是用上面的最简单的代码测试又没问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#0  0x00000000009452a8 in _mongoc_client_new_from_uri ()</span><br><span class="line">(gdb) bt</span><br><span class="line">#0  0x00000000009452a8 in _mongoc_client_new_from_uri ()</span><br><span class="line">#1  0x000000000090c445 in mongocxx::v_noabi::client::client(mongocxx::v_noabi::uri const&amp;, mongocxx::v_noabi::options::client const&amp;) ()</span><br><span class="line">#2  0x000000000081862c in __base_dtor  () at /usr/local/include/bsoncxx/v_noabi/bsoncxx/third_party/mnmlstc/core/optional.hpp:81</span><br><span class="line">#3  __base_dtor  () at /usr/local/include/bsoncxx/v_noabi/bsoncxx/third_party/mnmlstc/core/optional.hpp:194</span><br><span class="line">#4  __base_dtor  () at /usr/local/include/bsoncxx/v_noabi/bsoncxx/view_or_value.hpp:30</span><br><span class="line">#5  __base_dtor  () at /usr/local/include/bsoncxx/v_noabi/bsoncxx/string/view_or_value.hpp:36</span><br><span class="line">#6  MongoDatabase::initMongoConnection() (this=0x152892c0) at mongo_database.cpp:667</span><br><span class="line">#7  0x0000000000589884 in _M_dispose () at /usr/include/c++/4.9/bits/basic_string.h:240</span><br><span class="line">#8  __base_dtor  () at /usr/include/c++/4.9/bits/basic_string.h:547</span><br><span class="line">#9  CommonMongoDatabase::startup(EntityDefs const&amp;, bool, bool) (this=0x7ffcd0f7fc60, entityDefs=...) at mongo_database.cpp:3016</span><br><span class="line">#10 0x0000000000502d42 in Database::init(bool, bool, DefsSyncMode) (this=0x7ffcd0f80b90, isRecover=&lt;optimized out&gt;, isUpgrade=&lt;optimized out&gt;, defsSyncMode=&lt;optimized out&gt;) at database.cpp:974</span><br><span class="line">#11 0x00000000005048df in bwMain(int, char**) (argc=&lt;optimized out&gt;, argv=&lt;optimized out&gt;) at main.cpp:69</span><br><span class="line">#12 0x00007f1dd39b6b45 in __libc_start_main () from /lib/x86_64-linux-gnu/libc.so.6</span><br><span class="line">#13 0x00000000004d00cf in _start ()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后发现这句mongocxx::instance instance{};在多线程中单例没有在所有链接初始化之前调用，就必定出现这个crash，出现在_mongoc_client_new_from_uri</p>
+</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
