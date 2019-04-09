@@ -13,6 +13,12 @@
     
 
     
+        <meta name="description" content="#Varint编码
+##原理 
+
+Varint 是一种紧凑的表示数字的方法。它用一个或多个字节来表示一个数字，值越小的数字使用越少的字节数。这能减少用来表示数字的字节数。
+Varint 中的每个 byte 的最高位 bit 有特殊的含义，如果该位为 1，表示后续的 byte 也是该数字的一部分，如果">
+    
 
     <!--Author-->
     
@@ -21,10 +27,16 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="nimitzlin blog">
+        <meta property="og:title" content="Varint编码">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="#Varint编码
+##原理 
+
+Varint 是一种紧凑的表示数字的方法。它用一个或多个字节来表示一个数字，值越小的数字使用越少的字节数。这能减少用来表示数字的字节数。
+Varint 中的每个 byte 的最高位 bit 有特殊的含义，如果该位为 1，表示后续的 byte 也是该数字的一部分，如果">
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +44,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -51,7 +63,7 @@
 
     <!-- Title -->
     
-    <title>Archives - nimitzlin blog</title>
+    <title>Varint编码 - nimitzlin blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,62 +165,163 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>Varint编码</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-04-09
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/c/">c++</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2019/04/09/Varint_encode/">
-        <h1 class="post-title archive">
-            Varint编码
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-09
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2019/04/03/mongocxx_test/">
-        <h1 class="post-title archive">
-            最简单版本的mongocxx driver测试
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-03
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>#Varint编码</p>
+<p>##原理 </p>
+<ul>
+<li>Varint 是一种紧凑的表示数字的方法。它用一个或多个字节来表示一个数字，值越小的数字使用越少的字节数。这能减少用来表示数字的字节数。</li>
+<li>Varint 中的每个 byte 的最高位 bit 有特殊的含义，如果该位为 1，表示后续的 byte 也是该数字的一部分，如果该位为 0，则结束。其他的 7 个 bit 都用来表示数字。因此小于 128 的数字都可以用一个 byte 表示。大于 128 的数字，会用两个字节</li>
 </ul>
+<p>##如图所示(借用)</p>
+<p><img src="Varint_s.png" alt></p>
+<p>##测试实现<br>*varint.hpp<br><code>`</code></p>
+<p>namespace varint<br>{</p>
+<pre><code>// Maximum buffer size to encode 1 int32 using varint algorithm
+static const int MAX_VARINT_BYTES = 5;
+
+
+/** 
+ * move the sign from 1st bit to last bit, so negative
+ * integer can be encoded efficiently
+ *  */
+inline std::uint32_t zig(std::int32_t n)
+{   
+    return (n &lt;&lt; 1) ^ (n &gt;&gt; 31);
+}   
+
+
+/** 
+ * decode the zig.  zag( zig (x) ) = x
+ * */
+inline std::int32_t zag(std::uint32_t n)
+{   
+    std::int32_t result =  (n &gt;&gt; 1) ^ -static_cast&lt;std::int32_t&gt;(n &amp; 1); 
+    return result;
+}   
+
+
+inline int encodeVarint(char* target, std::int32_t source)
+{   
+    // encode to zigzag
+    unsigned int value = zig(source);
+    target[0] = static_cast&lt;char&gt;(value | 0x80);
+    if (value &gt;= (1 &lt;&lt; 7)) {
+        target[1] = static_cast&lt;char&gt;((value &gt;&gt; 7) | 0x80);
+        if (value &gt;= (1 &lt;&lt; 14)) {
+            target[2] = static_cast&lt;char&gt;((value &gt;&gt; 14) | 0x80);
+            if (value &gt;= (1 &lt;&lt; 21)) {
+                target[3] = static_cast&lt;char&gt;((value &gt;&gt; 21) | 0x80);
+                if (value &gt;= (1 &lt;&lt; 28)) {
+                    target[4] = static_cast&lt;char&gt;(value &gt;&gt; 28);
+                    return 5;
+                } else {
+                    target[3] &amp;= 0x7F;
+                    return 4;
+                }   
+            } else {
+                target[2] &amp;= 0x7F;
+                return 3;
+            }   
+        } else {
+            target[1] &amp;= 0x7F;
+            return 2;
+        }   
+    } else {
+        target[0] &amp;= 0x7F;
+        return 1;
+    }   
+}   
+
+
+inline bool decodeVarint(char* stream, std::int32_t &amp; target)
+{   
+    char first = *stream;
+    if ( (first  &amp; 0x80) == 0)  // fast path for one byte
+    {   
+        target = zag(  static_cast&lt;std::uint32_t&gt;( first ) );
+        return true;
+    }   
+    std::uint32_t b;
+    std::uint32_t result;
+    b = first; result  = (b &amp; 0x7F)      ; if (!(b &amp; 0x80)) goto done;
+    b = *(stream+1) ; result |= (b &amp; 0x7F) &lt;&lt;  7; if (!(b &amp; 0x80)) goto done;
+    b = *(stream+2) ; result |= (b &amp; 0x7F) &lt;&lt; 14; if (!(b &amp; 0x80)) goto done;
+    b = *(stream+3) ; result |= (b &amp; 0x7F) &lt;&lt; 21; if (!(b &amp; 0x80)) goto done;
+    b = *(stream+4) ; result |=  b         &lt;&lt; 28; if (!(b &amp; 0x80)) goto done;
+done:
+    target = zag( result );
+    return true;
+}
+</code></pre><p>}</p>
+<p>···</p>
+<p>*main.cpp<br>···</p>
+<p>#include “varint.hpp”</p>
+<p>#include <iostream></iostream></p>
+<p>#include <cstdint></cstdint></p>
+<p>int main( int argc, char * argv[] )<br>{<br>    std::int32_t value = 21000;<br>    std::int32_t result = 0;<br>    char tempbuf[varint::MAX_VARINT_BYTES]={0};<br>    std::cout &lt;&lt; “size: “ &lt;&lt; varint::encodeVarint(tempbuf, value) &lt;&lt; std::endl;<br>    std::cout &lt;&lt; “buff: “&lt;&lt; tempbuf &lt;&lt; std::endl;<br>    varint::decodeVarint(tempbuf, result);<br>    std::cout &lt;&lt; “result:” &lt;&lt; result &lt;&lt; std::endl;<br>}<br>···</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr>
