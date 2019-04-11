@@ -13,6 +13,10 @@
     
 
     
+        <meta name="description" content="Python FAST_LOOPS原理python 虚拟机里面有一个宏FAST_LOOPS，打开宏提升速度
+影响和副作用源代码注释写的很清楚了， 游戏客户端用虚拟机的时候，一般循环中不需要接收信号，所以可以打开
+#if FAST_LOOPS            / Enabling this pa">
+    
 
     <!--Author-->
     
@@ -21,10 +25,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="categories">
+        <meta property="og:title" content="python fastloop">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Python FAST_LOOPS原理python 虚拟机里面有一个宏FAST_LOOPS，打开宏提升速度
+影响和副作用源代码注释写的很清楚了， 游戏客户端用虚拟机的时候，一般循环中不需要接收信号，所以可以打开
+#if FAST_LOOPS            / Enabling this pa">
     
 
     <!--Open Graph Site Name-->
@@ -51,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>categories - nimitzlin blog</title>
+    <title>python fastloop - nimitzlin blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,51 +161,81 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>categories</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/categories/c/">
-        <h1 class="post-title archive">
-            c++
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/categories/python/">
-        <h1 class="post-title archive">
-            python
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>python fastloop</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-04-09
+                        
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/python/">python</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Python-FAST-LOOPS"><a href="#Python-FAST-LOOPS" class="headerlink" title="Python FAST_LOOPS"></a>Python FAST_LOOPS</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>python 虚拟机里面有一个宏FAST_LOOPS，打开宏提升速度</p>
+<h2 id="影响和副作用"><a href="#影响和副作用" class="headerlink" title="影响和副作用"></a>影响和副作用</h2><p>源代码注释写的很清楚了， 游戏客户端用虚拟机的时候，一般循环中不需要接收信号，所以可以打开</p>
+<p>#if FAST_LOOPS<br>            /<em> Enabling this path speeds-up all while and for-loops by bypassing<br>               the per-loop checks for signals.  By default, this should be turned-off<br>               because it prevents detection of a control-break in tight loops like<br>               “while 1: pass”.  Compile with this option turned-on when you need<br>               the speed-up and do not need break checking inside tight loops (ones<br>               that contain only instructions ending with goto fast_next_opcode).
+            </em>/</p>
+<h2 id="速度比较"><a href="#速度比较" class="headerlink" title="速度比较"></a>速度比较</h2><ul>
+<li><p>打开前3次<br>···<br>Pystone(1.1) time for 50000 passes = 0.374852<br>This machine benchmarks at 133386 pystones/second<br>jhlin@tx2-dev-34c75bd1:~/pythonopcode/PythonOpcode$ python pystone.py<br>Pystone(1.1) time for 50000 passes = 0.346939<br>This machine benchmarks at 144118 pystones/second<br>jhlin@tx2-dev-34c75bd1:~/pythonopcode/PythonOpcode$ python pystone.py<br>Pystone(1.1) time for 50000 passes = 0.35255<br>This machine benchmarks at 141824 pystones/second<br>···</p>
+</li>
+<li><p>打开后3次<br>···<br>jhlin@tx2-dev-34c75bd1:~/pythonopcode/PythonOpcode$ python pystone.py<br>Pystone(1.1) time for 50000 passes = 0.318244<br>This machine benchmarks at 157112 pystones/second<br>jhlin@tx2-dev-34c75bd1:~/pythonopcode/PythonOpcode$ python pystone.py<br>Pystone(1.1) time for 50000 passes = 0.320223<br>This machine benchmarks at 156141 pystones/second<br>jhlin@tx2-dev-34c75bd1:~/pythonopcode/PythonOpcode$ python pystone.py<br>Pystone(1.1) time for 50000 passes = 0.313735<br>···</p>
+</li>
+</ul>
+<p>看起来还是有平均提升5%?可能和pystone本来就大量循环有关</p>
 
 
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
 
 
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr>
