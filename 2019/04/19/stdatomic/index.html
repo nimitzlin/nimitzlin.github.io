@@ -13,6 +13,11 @@
     
 
     
+        <meta name="description" content="std::atomic看到有人讨论atomic是不是lockfree的
+取决于硬件指令
+
+The C++ standard recommends (but does not require) that lock-free atomic operations are also address-free">
+    
 
     <!--Author-->
     
@@ -21,10 +26,15 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="nimitzlin blog">
+        <meta property="og:title" content="std::atomic">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="std::atomic看到有人讨论atomic是不是lockfree的
+取决于硬件指令
+
+The C++ standard recommends (but does not require) that lock-free atomic operations are also address-free">
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +42,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -51,7 +61,7 @@
 
     <!-- Title -->
     
-    <title>Archives: 2019 - nimitzlin blog</title>
+    <title>std::atomic - nimitzlin blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -145,88 +155,81 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2019</h1>
+                <div class="post-heading">
+                    <h1>std::atomic</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-04-19
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/c/">c++</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2019/04/19/stdatomic/">
-        <h1 class="post-title archive">
-            std::atomic
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-19
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2019/04/11/fast_loop_python/">
-        <h1 class="post-title archive">
-            python fastloop
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-11
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2019/04/09/Varint_encode/">
-        <h1 class="post-title archive">
-            Varint编码
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-09
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2019/04/03/mongocxx_test/">
-        <h1 class="post-title archive">
-            最简单版本的mongocxx driver测试
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-03
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="std-atomic"><a href="#std-atomic" class="headerlink" title="std::atomic"></a>std::atomic</h1><h2 id="看到有人讨论atomic是不是lockfree的"><a href="#看到有人讨论atomic是不是lockfree的" class="headerlink" title="看到有人讨论atomic是不是lockfree的"></a>看到有人讨论atomic是不是lockfree的</h2><ul>
+<li><p>取决于硬件指令</p>
+</li>
+<li><p>The C++ standard recommends (but does not require) that lock-free atomic operations are also address-free, that is, suitable for communication between processes using shared memory.</p>
+</li>
+<li><p><a href="https://en.cppreference.com/w/cpp/atomic/atomic_is_lock_free" target="_blank" rel="noopener">https://en.cppreference.com/w/cpp/atomic/atomic_is_lock_free</a></p>
+</li>
 </ul>
+<h2 id="测试实现"><a href="#测试实现" class="headerlink" title="测试实现"></a>测试实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;utility&gt;</span><br><span class="line">#include &lt;atomic&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line"> </span><br><span class="line">struct A &#123; int a[4]; &#125;;</span><br><span class="line">struct B &#123; int x, y; &#125;;</span><br><span class="line">struct C &#123; std::shared_ptr&lt;int&gt; p; &#125;;</span><br><span class="line">struct D &#123; int a[5]; &#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    std::atomic&lt;A&gt; a;</span><br><span class="line">    std::atomic&lt;B&gt; b;</span><br><span class="line">    std::atomic&lt;C&gt; c;</span><br><span class="line">    std::atomic&lt;D&gt; d;</span><br><span class="line">    std::cout &lt;&lt; std::boolalpha</span><br><span class="line">              &lt;&lt; &quot;std::atomic&lt;A&gt; is lock free? &quot;</span><br><span class="line">              &lt;&lt; std::atomic_is_lock_free(&amp;a) &lt;&lt; &apos;\n&apos;</span><br><span class="line">              &lt;&lt; &quot;std::atomic&lt;B&gt; is lock free? &quot;</span><br><span class="line">              &lt;&lt; std::atomic_is_lock_free(&amp;b) &lt;&lt; &apos;\n&apos;</span><br><span class="line">              &lt;&lt; &quot;std::atomic&lt;C&gt; is lock free? &quot;</span><br><span class="line">              &lt;&lt; std::atomic_is_lock_free(&amp;c) &lt;&lt; &apos;\n&apos;</span><br><span class="line">              &lt;&lt; &quot;std::atomic&lt;D&gt; is lock free? &quot;</span><br><span class="line">              &lt;&lt; std::atomic_is_lock_free(&amp;d) &lt;&lt; &apos;\n&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>g++ a.cpp -std=gnu++11 -latomic</p>
+<p>std::atomic<a> is lock free? true<br>std::atomic<b> is lock free? true<br>std::atomic<c> is lock free? true<br>std::atomic<d> is lock free? false</d></c></b></a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr>
